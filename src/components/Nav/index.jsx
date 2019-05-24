@@ -2,16 +2,17 @@ import React from 'react';
 import './style.scss';
 
 
-const Nav = ({title}) => 
-    <header className="nav-header">
-        <h1 className="nav-header__brand">
-            {title}
-        </h1>
-        <ul className="nav-header__links">
-            <li>Link 1</li>
-            <li>Link 2</li>
-        </ul>
-    </header>
+const Nav = ({title}) =>
+    <nav>
+        <div className="nav-wrapper">
+            <a href="#" className="brand-logo">{title}</a>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li><a href="#!">Sass</a></li>
+                <li><a href="#!">Components</a></li>
+                <li><a href="#!">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
 
 
 export default Nav;

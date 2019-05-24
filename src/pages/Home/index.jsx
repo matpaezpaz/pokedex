@@ -1,17 +1,15 @@
 import React from 'react';
 import Nav from '../../components/Nav';
+import CardSection from '../../containers/CardSection';
+
 
 class Home extends React.Component {
-    constructor(){
-        super()
-    }
-
     render(){
 
         return (
             <React.Fragment>
                 <Nav title="Pokédex" />
-
+                <CardSection />
             </React.Fragment>
         );
     }
