@@ -4,15 +4,15 @@ import './style.scss';
 
 const Card = ({name}) => (
     <div className="col m6">
-        <div class="card">
-            {/* <div class="card-image">
+        <div className="card">
+            {/* <div className="card-image">
                 <img src="images/sample-1.jpg"/>
-                <span class="card-title">{name}</span>
+                <span className="card-title">{name}</span>
             </div> */}
-            <div class="card-content">
+            <div className="card-content">
                 <h1>{name}</h1>
             </div>
-            <div class="card-action">
+            <div className="card-action">
                 <a href="#">This is a link</a>
             </div>
         </div>

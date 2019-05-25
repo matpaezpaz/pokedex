@@ -1,35 +1,68 @@
 import React from "react";
-import PokeAPIService from "../../services/PokeAPIService";
 import Card from "../../components/Card";
+import Pagination from '../../components/Pagination';
+import './styles.scss';
 
 
 class CardSection extends React.Component {
-    constructor() {
+    constructor({service}) {
         super();
         this.state = {
-            pokemons : []
+            pokemons : [],
+            previous : false,
+            next : false
         }
-        this.pokeApi = new PokeAPIService();
+        this.service = service;
     }
     componentDidMount(){
-        this.pokeApi.getPokemons()
+        this.service.getPokemons()
         .then( 
-            apiPokemons => {
-                this.setState({
-                    pokemons : apiPokemons
-                })
-            }
+            this.updateList
+        )
+    }
+        
+    updateList = (apiPokemons) => {
+        this.setState({
+            pokemons : apiPokemons
+        })
+        this.setState({
+            previous: this.service.thereArePrevious(),
+            next: this.service.thereAreNext()
+        })
+    }
+
+    handleClickPrevious = () => {
+        this.service.previous().then(
+            this.updateList
         );
     }
+    handleClickNext = () => {
+        this.service.next().then(
+            this.updateList
+        );
+    }
+
 
     render (  ) {
         let pokemonsCards = []
         if ( this.state.pokemons ) {
             pokemonsCards = this.state.pokemons.map(item => <Card  {...item} />)
         }
-        return <div className="row">
-            { pokemonsCards }
-        </div>;
+        const paginationProps = {
+            thereAreNext : this.state.next,
+            thereArePrevious : this.state.previous,
+            handleClickNext : this.handleClickNext,
+            handleClickPrevious : this.handleClickPrevious
+        }
+
+        return (
+            <React.Fragment>
+                <div className="row">
+                    { pokemonsCards }
+                </div>
+                <Pagination {...paginationProps} />
+            </React.Fragment>
+        )
     }
 }
 
