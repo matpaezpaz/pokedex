@@ -8,7 +8,7 @@ const Pagination = ({thereAreNext, thereArePrevious, handleClickNext, handleClic
                     <i className="material-icons">chevron_left</i>
                 </a>
             </li>
-            <li className="waves-effect { thereAreNext ? '' : 'disabled' } ">
+            <li className={thereAreNext ? 'waves-effect' : 'waves-effect disabled' } >
                 <a href="#!" onClick={handleClickNext} >
                     <i className="material-icons">chevron_right</i>
                 </a>

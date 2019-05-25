@@ -13,7 +13,7 @@ const Card = ({name}) => (
                 <h1>{name}</h1>
             </div>
             <div className="card-action">
-                <a href="#">This is a link</a>
+                <a href="#!">This is a link</a>
             </div>
         </div>
     </div>

@@ -15,7 +15,6 @@ class Home extends React.Component {
                 <Nav title="Pokédex" />
                 <div className="container">
                     <CardSection  service={this.pokeApi} />
-                    
                 </div>
             </React.Fragment>
         );

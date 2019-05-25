@@ -32,21 +32,25 @@ class CardSection extends React.Component {
     }
 
     handleClickPrevious = () => {
-        this.service.previous().then(
-            this.updateList
-        );
+        if ( this.state.previous ) {
+            this.service.previous().then(
+                this.updateList
+            );
+        }
     }
     handleClickNext = () => {
-        this.service.next().then(
-            this.updateList
-        );
+        if ( this.state.next ) {
+            this.service.next().then(
+                this.updateList
+            );
+        }
     }
 
 
     render (  ) {
         let pokemonsCards = []
         if ( this.state.pokemons ) {
-            pokemonsCards = this.state.pokemons.map(item => <Card  {...item} />)
+            pokemonsCards = this.state.pokemons.map(item => <Card key={item.id}  {...item} />)
         }
         const paginationProps = {
             thereAreNext : this.state.next,
