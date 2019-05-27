@@ -2,12 +2,12 @@ import React from 'react';
 import Nav from '../../components/Nav';
 
 import CardSection from '../../containers/CardSection';
-import PokeAPIService from '../../services/PokeAPIService';
+import PokeApiInstance from '../../services/PokeAPIService';
 
 class Home extends React.Component {
     constructor(){
         super();
-        this.pokeApi = new PokeAPIService();
+        this.pokeApi = PokeApiInstance;
     }
     render(){
         return (

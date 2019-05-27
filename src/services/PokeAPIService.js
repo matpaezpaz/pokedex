@@ -27,6 +27,10 @@ class PokeAPIService {
             return this.getPokemons( this._previous )
         }
     }
-
+    async getPokemonById(idPokemon) {
+        const response = await fetch(this._apiUrl + idPokemon + '/');
+        const data = await response.json();
+        return data;
+    }
 }
-export default PokeAPIService;
+export default new PokeAPIService();

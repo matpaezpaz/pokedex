@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 
-const Card = ({name}) => (
+const Card = ({name,id}) => (
     <div className="col m6">
         <div className="card">
             {/* <div className="card-image">
@@ -13,7 +14,9 @@ const Card = ({name}) => (
                 <h1>{name}</h1>
             </div>
             <div className="card-action">
-                <a href="#!">This is a link</a>
+                <Link to={`/pokemon/${id}`}>
+                    Pokémon Description
+                </Link>
             </div>
         </div>
     </div>
